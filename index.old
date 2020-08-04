@@ -1,0 +1,33 @@
+const {createBluetooth} = require('node-ble')
+const {bluetooth, destroy} = createBluetooth()
+
+
+let run = async () =>{
+
+  console.log('begin');
+
+  const adapter = await bluetooth.defaultAdapter()
+
+  console.log('addapter');
+
+  if (! await adapter.isDiscovering())
+    await adapter.startDiscovery()
+
+  const device = await adapter.waitDevice('24:62:AB:F3:43:72')
+  await device.connect()
+  const gattServer = await device.gatt()
+
+  const service2 = await gattServer.getPrimaryService('ab0828b1-198e-4351-b779-901fa0e0371e')
+  const characteristic2 = await service2.getCharacteristic('2a079785-347f-432e-af39-d847712a5a21')
+  console.log(characteristic2)
+  await characteristic2.startNotifications()
+  characteristic2.on('valuechanged', buffer => {
+    console.log(buffer)
+  })
+  await characteristic2.stopNotifications()
+
+//  await device.disconnect()
+//  destroy()
+}
+
+run();
