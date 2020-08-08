@@ -21,7 +21,8 @@ async function main () {
   await device.connect()
   console.log('connected')
 
-device.on('disconnect',()=>{setTimeout(()=>  device.connect(),3000)
+device.on('disconnect',()=>{console.log('disconnected!');
+	process.exit(1)
 });
 
   const gattServer = await device.gatt()
@@ -79,5 +80,5 @@ device.on('disconnect',()=>{setTimeout(()=>  device.connect(),3000)
  
    main()
    .then(console.log)
-   .catch(console.error)
+   .catch((error)=>{console.error('theres an error:',error); process.exit(2)})
   
