@@ -2,7 +2,7 @@ var AutoUpdater = require('auto-updater');
 
     var autoupdater = new AutoUpdater({
      pathToJson: '',
-     autoupdate: true,
+     autoupdate: false,
      checkgit: false,
      jsonhost: 'raw.githubusercontent.com',
      contenthost: 'codeload.github.com',
