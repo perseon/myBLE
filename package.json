@@ -1,10 +1,9 @@
-"version":"0.0.2",
-"auto-updater":{
-	"repo":"/perseon/myBLE",
-	"branch":"master"
+{"version":"0.0.2",
+  "auto-updater":{
+  "repo":"/perseon/myBLE",
+  "branch":"master"
 },
-{
-  "scripts": {
+ "scripts": {
     "dev": "nodemon app.js"
   },
   "dependencies": {
