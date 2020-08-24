@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-//that's not useful at all
 require('dotenv').config()
 
 const coap  = require('coap') // or coap
