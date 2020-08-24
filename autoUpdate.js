@@ -2,12 +2,12 @@ var AutoUpdater = require('auto-updater');
 
     var autoupdater = new AutoUpdater({
      pathToJson: '',
-     autoupdate: false,
-     checkgit: true,
+     autoupdate: true,
+     checkgit: false,
      jsonhost: 'raw.githubusercontent.com',
      contenthost: 'codeload.github.com',
      progressDebounce: 0,
-     devmode: false
+     devmode: true
     });
 
     // State the events
